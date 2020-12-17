@@ -1,11 +1,33 @@
 # parse_vNav_Motion.py
 
+<<<<<<< HEAD
 This is a small python script to parse DICOM files from a vNav series and convert them into motion scores. The script takes four arguments.  The usage and help information below can be generated any time by calling it with the `-h` or `--help` flag.
 
 ```
 usage: parse_vNav_Motion.py [-h] --tr TR --input INPUT [INPUT ...] --radius
                             RADIUS
                             (--mean-rms | --mean-max | --rms-scores | --max-scores)
+=======
+This is a small python script to parse the DICOM files from a vNavs series and convert them into an average RMS motion score. The script takes the 
+following arguments:
+
+1. `--tr` which is the TR of the parent sequence (i.e., the MPRAGE) expressed in seconds (e.g., `--tr 2.4`); and
+2. `--input` which is the list of files DICOM files that makeup the vNavs series; or
+3. `--input-dir` which is a directory containing DICOM files that makeup the vNavs series; or
+4. `--input-json` which is a BIDS  JSON sidecar file containing an `ImageComments` array; and
+5. either `--rms` or `--max` which decides whether the time-averaged RMS motion or time-averaged max motion is printed; and
+6. `--output-dir` which is the desired output directory
+
+This script will output a JSON file containing 
+
+1. `Transforms`
+2. `HomogeneousTransforms`
+3. `vNavMotionScoresRMS`
+4. `vNavMotionScoresMax`
+5. `MeanMotionScoreRMSPerMin`
+6. `MeanMotionScoreMaxPerMin`
+7. `Failed` which is ether `null` or an array containing the `AquisitionNumber` and `InstanceNumber` where vNav failed.
+>>>>>>> e82cbff07fdc2554301351d6038039551bc42854
 
 Parse DICOM files from a vNav series and convert them into different motion
 scores.
